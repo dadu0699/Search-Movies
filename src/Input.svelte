@@ -1,0 +1,31 @@
+<script>
+    import Movie from "./Movie.svelte";
+
+    let value = "";
+    let loading = false;
+    let response = [];
+
+    const handleInput = (event) => (value = event.target.value);
+
+    $: if (value.length > 2) {
+        loading = true;
+        fetch(`https://www.omdbapi.com/?s=${value}&apikey=7d354b84`)
+            .then((res) => res.json())
+            .then((apiResponse) => {
+                response = apiResponse.Search || [];
+                loading = false;
+            });
+    }
+</script>
+
+<input placeholder="Search movies ..." {value} on:input={handleInput} />
+
+{#if loading}
+    <strong>Loading ...</strong>
+{:else}
+    {#each response as { Title, Poster, Year }}
+        <Movie title={Title} poster={Poster} year={Year} />
+    {:else}
+        <strong>No results</strong>
+    {/each}
+{/if}
