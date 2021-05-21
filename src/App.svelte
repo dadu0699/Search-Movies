@@ -2,6 +2,19 @@
 	import Input from "./Input.svelte";
 </script>
 
-<main>
+<section>
+	<h1>Search Movies 🍿</h1>
 	<Input />
-</main>
+</section>
+
+<style>
+	h1 {
+		font-size: 32px;
+	}
+
+	section {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+	}
+</style>
