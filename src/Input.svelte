@@ -27,8 +27,10 @@
 {#await response}
     <strong>Loading ...</strong>
 {:then movies}
-    {#each movies as { Title, Poster, Year }}
-        <Movie title={Title} poster={Poster} year={Year} />
+    {#each movies as { Title, Poster, Year, Type }}
+        {#if Type === "movie"}
+            <Movie title={Title} poster={Poster} year={Year} />
+        {/if}
     {:else}
         <strong>No results</strong>
     {/each}
