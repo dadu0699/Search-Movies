@@ -1,20 +1,44 @@
-<script>
-	import Input from "./Input.svelte";
+<script lang="ts">
+  import Input from '@/lib/Input.svelte';
 </script>
 
-<section>
-	<h1>Search Movies 🍿</h1>
-	<Input />
-</section>
+<main class="container">
+  <h1>Search Movies 🍿</h1>
+  <Input />
+</main>
 
 <style>
-	h1 {
-		font-size: 32px;
-	}
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+    width: 100%;
+  }
 
-	section {
-		align-items: center;
-		display: flex;
-		flex-direction: column;
-	}
+  .container h1 {
+    align-self: center;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
 </style>
